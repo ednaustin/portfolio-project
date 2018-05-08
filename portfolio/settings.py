@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jobs.apps.JobsConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
         'USER':'postgres',
         'PASSWORD': 'Django1234',
         'HOST': 'localhost',
-        'PORT': '5432',        
+        'PORT': '5432',
     }
 }
 
