@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
 
-    <title>Ed Ramirez</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -34,56 +33,55 @@
               <a class="nav-link" href="{% static 'resume.pdf' %}" target="_blank">Resume</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+              <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
             </li>
-
           </ul>
         </div>
       </nav>
     </header>
 
     <main role="main">
+      <div class="container">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Hi, I'm Ed</h1>
-          <p class="lead text-muted">I love making Django websites. It's a fun way to share your interests with the world.</p>
-          <p>
-            <a href="mailto:info@ednaustin.com" class="btn btn-primary my-2">Email me</a>
-          </p>
-        </div>
-      </section>
+      <h1 class="text-center pt-4">{{ blog.title }}</h1>
+      <p class="text-center">{{ blog.pub_date }}</p>
+      <hr>
+      <p class="text-center"><img class="img-fluid" src="{{ blog.image.url }}" height=400 width=600/></p>
+      <br>
+      <br>
+      <p>{{ blog.body }}</p>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
 
-          <div class="row">
-
-            {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ job.image.url }}"" alt="job image">
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
+      <!--
+      <div class="row">
+        {% for blog in jobs.all %}
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ blog.image.url }}"" alt="job image">
+            <div class="card-body">
+              <p class="card-text">{{ job.summary }}</p>
             </div>
-            {% endfor %}
-
           </div>
         </div>
-      </div>
+        {% endfor %}
 
+        title = models.CharField(max_length=255)
+          pub_date = models.DateTimeField()
+          body = models.TextField()
+          image
+        -->
+
+    </div>
     </main>
 
     <footer class="text-muted">
-      <div class="container">
       <!--
+      <div class="container">
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
       -->
-        <p class="container text-center">© EdnAustin {% now "Y"%}</p>
+        <p class="container text-center">© Ed Ramirez {% now "Y"%}</p>
       </div>
     </footer>
 
